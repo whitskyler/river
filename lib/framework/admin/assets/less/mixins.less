@@ -1,0 +1,87 @@
+//
+//    Admin Name: River
+//    Description: Mixins Stylesheet for the River Settings Page
+//    Author: CodeRiver Labs 
+//    Author URI: http://coderiverlabs.com
+//    Version: 0.0.0
+//
+//    License: GNU General Public License v2.0 (or later)
+//    License URI: http://www.opensource.org/licenses/gpl-license.php
+//
+
+
+
+// Sizing shortcuts
+// -------------------------
+.size(@height, @width) {
+    width: @width;
+    height: @height;
+}
+.square(@size) {
+    .size(@size, @size);
+}
+
+// Typography
+//------------------------------------------------------------
+#font {
+    #family {
+        .serif() { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        .sans-serif() { font-family: "Georgia", Cambria, Times New Roman, Times, serif; }
+    }
+    .shorthand(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+        font-size: @size;
+        font-weight: @weight;
+        line-height: @lineHeight;
+    }
+    .serif(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+        #font > #family > .serif;
+        #font > .shorthand(@size, @weight, @lineHeight);
+    }
+    .sans-serif(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+        #font > #family > .sans-serif;
+        #font > .shorthand(@size, @weight, @lineHeight);
+    }
+    .monospace(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+        #font > #family > .monospace;
+        #font > .shorthand(@size, @weight, @lineHeight);
+    }
+}
+
+// Borders
+//------------------------------------------------------------
+// Border
+.border( @border: 1px solid #d8d8d8 ) {
+    border: @border;
+}
+.borderTop( @border: 1px solid #d8d8d8 ) {
+    border-top: @border;
+}
+.borderBottom( @border: 1px solid #d8d8d8 ) {
+    border-bottom: @border;
+}
+.borderLeft( @border: 1px solid #d8d8d8 ) {
+    border-left: @border;
+}
+.borderRight( @border: 1px solid #d8d8d8 ) {
+    border-right: @border;
+}
+
+// Border radius with default value of 10px
+.borderRadius(@radius: 10px 10px 0 0) {
+	-webkit-border-radius: 	@radius;
+	-moz-border-radius: 	@radius;
+	-ms-border-radius: 		@radius;
+	-o-border-radius: 		@radius;
+	border-radius: 			@radius;
+}
+
+
+// Box Shadows
+//------------------------------------------------------------
+.boxShadow( @shadow ) {
+    -webkit-box-shadow:     @shadow;
+    -moz-box-shadow:        @shadow;
+    -ms-box-shadow:         @shadow;
+    -o-box-shadow:          @shadow;
+    box-shadow:             @shadow;    
+}    
